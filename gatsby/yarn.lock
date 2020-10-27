@@ -1260,6 +1260,15 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
+"@hot-loader/react-dom@^17.0.0-rc.2":
+  version "17.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/@hot-loader/react-dom/-/react-dom-17.0.0-rc.2.tgz#024c963956e8150a81783df77135ddac1c0d7a57"
+  integrity sha512-oUm7u9e3NtQcV3N+ybPmpAYAx3Jl1b5E62D39cBz1EIKtnhSyFgKou+0zEg79y1EFWT7SymsYDr33JXyczaFSw==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    scheduler "0.20.0-rc.2"
+
 "@jest/types@^24.9.0":
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/@jest/types/-/types-24.9.0.tgz#63cb26cb7500d069e5a389441a7c6ab5e909fc59"
@@ -13549,6 +13558,14 @@ sax@>=0.6.0, sax@~1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
+
+scheduler@0.20.0-rc.2:
+  version "0.20.0-rc.2"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.20.0-rc.2.tgz#5c48ac29e1a352a43c74cb5fc54c5ca94d8396fc"
+  integrity sha512-tgvUKHPbQr0fq5EfRd3S8hgohi/fI3h/gv1jxVb9IungCF/t2jUG946dlwgCxy8bnYvSIwRjcuw7eksDDpplLg==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
 
 scheduler@^0.18.0:
   version "0.18.0"

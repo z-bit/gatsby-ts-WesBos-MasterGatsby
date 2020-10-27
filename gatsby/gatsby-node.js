@@ -73,11 +73,54 @@ async function toppingPages({ graphql, actions }) {
 
 }
 
+async function paginateSlicemasters({ graphql, actions }) {
+    // query all slicemasters
+    const { data } = await graphql(`
+      query {
+        masters: allSanityPerson {
+          totalCount
+          nodes {
+            name
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
+    `) 
+
+    // TODO turn each slicemaster into their own single page ==> later
+    
+    // figure out how many pages are needed: n
+    const pageSize = parseInt(process.env.GATSBY_PAGE_SIZE)
+    const totalCount = data.masters.totalCount
+    const pageCount = Math.ceil(totalCount / pageSize)
+    console.log('==============>>>>', pageCount)
+    // loop from 1 to n to create the pages
+    Array.from({ length: pageCount }).forEach((_, i) => {
+        console.log('cearting page', i)
+        actions.createPage({
+          path: `slicemasters/${i +1}`,
+          component: path.resolve('./src/pages/slicemasters.tsx'),
+          context: {
+            skip: i * pageSize,
+            currentPage: i + 1,
+            pageSize, 
+            totalCount,
+            base: '/slicemasters',
+          }
+        })
+    })
+
+}
+
 export async function createPages(params) {
     // wait for all promises to be resolved
     await Promise.all([
       pizzaPages(params),
       toppingPages(params),
+      paginateSlicemasters(params),
     ])
 }
 
@@ -116,3 +159,4 @@ export async function sourceNodes(params) {
       fetchBeersToNodes(params)
   ])    
 }
+
