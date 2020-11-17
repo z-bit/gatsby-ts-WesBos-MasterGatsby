@@ -1,12 +1,14 @@
-# [Master Gatsby](https://mastergatsby.com/)
-Course from Wes Bos about mastering Gatsby [my personal Login]()
+# [Master Gatsby (Wes Bos)](https://mastergatsby.com/)
+Course from Wes Bos about mastering Gatsby [my personal Login](https://courses.wesbos.com/account)
 
-## Progress
-finished Module 7: Making Gatsby Dynamic
+## Repo consists out of 2 projects 
 
-# gatsby
+## gatsby_frontend
 Front-end project **Slick's Slices** pizza service
 
-# [sanity](https://www.sanity.io/)
+## [sanity](https://www.sanity.io/)_backend
 Back-end project for data management and storage
+
+## Progress
+finished Module 9: Custom Pages + SEO
 

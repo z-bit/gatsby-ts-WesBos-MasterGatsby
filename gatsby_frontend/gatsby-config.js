@@ -13,8 +13,10 @@ export default {
         title: 'Slicks Slices',
         siteUrl: 'http://commi.zapto.org/gatsby/pizza',
         description: 'The best pizza in Hemel!',
+        twitter: '@SlicksSlices',
     },
     plugins: [
+        'gatsby-plugin-react-helmet',
         'gatsby-plugin-styled-components',
         {
             resolve: 'gatsby-source-sanity',

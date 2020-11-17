@@ -2,11 +2,14 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { BeerGridStyles, SingleBeerStyles } from '../styles/BeersStyles'
 import defaultBeer from '../assets/images/defaultBeer.png'
+import SEO from '../components/SEO'
 
 const BeersPage = ({ data, pageContext }) => {
     const beers = data.beers.nodes
 
-    return (<>
+    return (
+    <>
+        <SEO title={`Beers we have ${beers.length} in stock`} />
         <h2 className="center">
             We have {beers.length} beers available. Dine in only!
         </h2>

@@ -3,11 +3,13 @@ import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components' 
 import Pagination from '../components/Pagination'
+import SEO from '../components/SEO'
 
 const SlicemastersPage = ({ data, pageContext }) => {
     const masters = data.masters.nodes
     return (
         <>
+            <SEO title={`Slicemasters - Page ${pageContext.currentPage}`} />
             <Pagination 
                 pageSize={pageContext.pageSize} 
                 totalCount={data.masters.totalCount} 

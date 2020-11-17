@@ -2,25 +2,32 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import PizzaStyles from './PizzaStyles'
+import SEO from '../components/SEO'
 
 export const Pizza = ({ data: { pizza } }) => {
    
     return (
-        <PizzaStyles>
-            <Img fluid={pizza.image.asset.fluid} alt={pizza.name} />
-            <div>
-            <h2 className="mark">{pizza.name}</h2>
+        <>
+            <SEO 
+                title={pizza.name} 
+                image={pizza.image?.asset?.fluid?.src}
+            />
+            <PizzaStyles>
+                <Img fluid={pizza.image.asset.fluid} alt={pizza.name} />
+                <div>
+                <h2 className="mark">{pizza.name}</h2>
 
-            <ul>
-                {pizza.toppings.map(topping => <li key={topping.id}>
-                    {topping.name}
-                    <span className="veg">
-                            {topping.vegetarian ? '🌱' : ''}
-                        </span> 
-                </li>)}
-            </ul>
-            </div>
-        </PizzaStyles>
+                <ul>
+                    {pizza.toppings.map(topping => <li key={topping.id}>
+                        {topping.name}
+                        <span className="veg">
+                                {topping.vegetarian ? '🌱' : ''}
+                            </span> 
+                    </li>)}
+                </ul>
+                </div>
+            </PizzaStyles>
+        </>
     )
 }
 

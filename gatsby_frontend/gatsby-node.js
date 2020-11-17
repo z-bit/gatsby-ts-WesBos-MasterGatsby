@@ -96,10 +96,9 @@ async function paginateSlicemasters({ graphql, actions }) {
     const pageSize = parseInt(process.env.GATSBY_PAGE_SIZE)
     const totalCount = data.masters.totalCount
     const pageCount = Math.ceil(totalCount / pageSize)
-    console.log('==============>>>>', pageCount)
+  
     // loop from 1 to n to create the pages
     Array.from({ length: pageCount }).forEach((_, i) => {
-        console.log('cearting page', i)
         actions.createPage({
           path: `slicemasters/${i +1}`,
           component: path.resolve('./src/pages/slicemasters.tsx'),
@@ -112,6 +111,17 @@ async function paginateSlicemasters({ graphql, actions }) {
           }
         })
     })
+
+    // create a single page for each Slicemaster
+    data.masters.nodes.forEach((node, i) => {
+      const slug = node.slug.current
+      const currentPage = i + 1
+      actions.createPage({
+        path: `slicemaster/${slug}`,
+        component: path.resolve('./src/templates/Slicemaster.tsx'),
+        context: { slug }
+      })
+    })    
 }
 
 export async function createPages(params) {
