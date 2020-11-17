@@ -25,7 +25,7 @@ const Nav = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/slicemasters">ScliceMasters</Link>
+                    <Link to="/slicemasters/1">ScliceMasters</Link>
                 </li>
                 <li>
                     <Link to="/order">Order Ahead!</Link>

@@ -2,31 +2,6 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
-const PaginationStyles = styled.div`
-
-    display: flex;
-    align-content: center;
-    align-items: center;
-    justify-items: center;
-    text-align: center;
-    border: 1px solid var(--grey);
-    margin: 2rem 0;
-    border-radius: 5px;
-    & > * {
-        padding: 1rem;
-        flex: 1;
-        text-decoration: none;
-        &[aria-current],
-        &.current {
-            color: var(--red);
-        }
-        &[disabled] {
-            pointer-events: none;
-            color: var(--grey);
-        }
-    }
-`
-
 type PaginationProps = {
     pageSize: number,
     totalCount: number,
@@ -75,3 +50,28 @@ const Pagination = ({
 }
 
 export default Pagination
+
+const PaginationStyles = styled.div`
+
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    border: 1px solid var(--grey);
+    margin: 2rem 0;
+    border-radius: 5px;
+    & > * {
+        padding: 1rem;
+        flex: 1;
+        text-decoration: none;
+        &[aria-current],
+        &.current {
+            color: var(--red);
+        }
+        &[disabled] {
+            pointer-events: none;
+            color: var(--grey);
+        }
+    }
+`

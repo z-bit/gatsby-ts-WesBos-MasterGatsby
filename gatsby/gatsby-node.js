@@ -112,7 +112,6 @@ async function paginateSlicemasters({ graphql, actions }) {
           }
         })
     })
-
 }
 
 export async function createPages(params) {
