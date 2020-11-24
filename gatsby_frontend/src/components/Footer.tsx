@@ -6,10 +6,11 @@ import styled from 'styled-components'
 const Footer = () => {
     return (
         <footer>
+            <hr />
             <Style>
                 <div>&copy; Slick's Slices {new Date().getFullYear()}</div>
                 <div className="spacer" />
-                <div className="link"><Link to="/test_animation">Test an Animation with react-spring</Link></div>
+                <div className="right"><a href="https://courses.wesbos.com/account" target="_blank">to the course ...</a></div>
             </Style>    
         </footer>
     )
@@ -23,7 +24,7 @@ const Style = styled.div`
     .spacer {
         flex-grow: 1;
     }
-    .link {
-        margin-top: 10px;
+    .right {
+        margin-top: 6px;
     }
 `

@@ -1,9 +1,9 @@
 import React from 'react'
 import  { Link } from 'gatsby' 
 import Img from 'gatsby-image'
-import PizzaItemStyles from './PizzaItemStyles'
+import styled from 'styled-components'
 
-const PizzaItem = ({pizza}) => {
+export default function PizzaItem({pizza}) {
     return (
         <PizzaItemStyles>
             <Link to={`/pizza/${pizza.slug.current}`} >
@@ -18,4 +18,18 @@ const PizzaItem = ({pizza}) => {
     )
 }
 
-export default PizzaItem 
+
+const PizzaItemStyles = styled.div`
+    display: grid;
+    /*  @supports not (grid-template-rows: subgrid) {
+            --rows: grid-template-rows: auto auto 1fr;
+        } 
+    there is something wrong in these lines
+    */
+    grid-template-rows: var(--rows, subgrid); /* row sizing defined in PiizListStyles! */
+    grid-row: span 3;
+    gap: 1rem;
+    h2, p {
+        margin: 1rem;
+    }
+`

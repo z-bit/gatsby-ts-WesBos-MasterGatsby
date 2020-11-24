@@ -3,4 +3,6 @@ const formatter = Intl.NumberFormat('en-GB', {
     currency: 'GBP',
 })
 
-export const formatMoney = (cents) => formatter.format(cents/100)
+export default function formatMoney(cents: number) {
+    return formatter.format(cents/100)
+} 

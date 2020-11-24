@@ -1,11 +1,16 @@
 import reactDom from "react-dom"
 import { useState } from 'react'
+import { Size } from './calulatePizzaPrice'
 
-export const usePizza = ({ pizzas, inputs }) => {
+type OrderedPizza = {
+    id: string
+    size: Size
+}
+export default function usePizza({ pizzas, inputs }) {
 
     const [order, setOrder] = useState([])
 
-    const addToOrder = (orderedPizza) => setOrder([...order, orderedPizza])
+    const addToOrder = (orderedPizza: OrderedPizza) => setOrder([...order, orderedPizza])
 
     const removeFromOrder = (index) => setOrder([
         ...order.slice(0, index),
@@ -15,6 +20,6 @@ export const usePizza = ({ pizzas, inputs }) => {
     return {
         order,
         addToOrder,
-        removeFromOrder,
+        removeFromOrder
     }
 }

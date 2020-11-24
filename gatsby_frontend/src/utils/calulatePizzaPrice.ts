@@ -1,4 +1,5 @@
-import { formatMoney } from './formatMoney'
+import formatMoney from './formatMoney'
+
 export type Size = 'S' | 'M' | 'L'
 
 const sizePrice = {
@@ -6,5 +7,13 @@ const sizePrice = {
     M: 1.00,
     L: 1.25,
 }
-export const calculatePizzaPrice = 
-    (cents: number, size: Size) => formatMoney(cents * sizePrice[size]) 
+
+export default function calculatePizzaPrice(cents: number, size: Size, inCurrency: boolean) {
+    const price = cents * sizePrice[size] 
+    
+    if(inCurrency) {
+        return formatMoney(price)
+    }
+
+    return price
+} 

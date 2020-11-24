@@ -2,10 +2,14 @@ import React from 'react'
 import { graphql } from'gatsby'
 import Img from 'gatsby-image'
 import SEO from '../components/SEO'
-import { OrderStyledForm, MenuItemStyles } from '../styles/OrderStyles'
+import OrderFormStyles from '../styles/OrderFormStyles'
+import MenuItemStyles from '../styles/MenuItemStyles'
 import useForm from '../utils/useForm' // custom hook
-import { Size, calculatePizzaPrice } from '../utils/calulatePizzaPrice'
-import { usePizza } from '../utils/usePizza'
+import calculatePizzaPrice, { Size } from '../utils/calulatePizzaPrice'
+import formatMoney from '../utils/formatMoney'
+import calculateOrderTotal from '../utils/calculateOrderTotal'
+import usePizza from '../utils/usePizza'
+import PizzaOrder from '../components/PizzaOrder'
 
 const OrderPage = ({ data }) => {
     const { values, updateValue} = useForm({
@@ -23,7 +27,7 @@ const OrderPage = ({ data }) => {
     return (
         <>
             <SEO title="Order a Pizza" />
-            <OrderStyledForm>
+            <OrderFormStyles>
                 <fieldset>
                     <legend>Your Info</legend>
                     <label htmlFor="name">Name</label>
@@ -53,8 +57,8 @@ const OrderPage = ({ data }) => {
                             </div>
                             <div>
                                 {(['S', 'M', 'L']).map( (size: Size) =>(
-                                    <button type="button" onClick={() => addToOrder({ id: pizza.id, size })}>
-                                        {`${size} ${calculatePizzaPrice(pizza.price, size)}`}
+                                    <button key={size + pizza.id} type="button" onClick={() => addToOrder({ id: pizza.id, size })}>
+                                        {`${size} ${calculatePizzaPrice(pizza.price, size, true)}`}
                                     </button>
                                 ))}
                             </div>
@@ -63,8 +67,17 @@ const OrderPage = ({ data }) => {
                 </fieldset>
                 <fieldset className="order">
                     <legend>Order</legend>
+                    <PizzaOrder 
+                        order={order}
+                        pizzas={pizzas}
+                        removeFromOrder={removeFromOrder}
+                    />
                 </fieldset>
-            </OrderStyledForm>
+                <fieldset>
+                    <h3>Your Total is {calculateOrderTotal(order, pizzas)}</h3>
+                    <button type="submit">Order Ahead</button>
+                </fieldset>
+            </OrderFormStyles>
         </>
     )
 }
