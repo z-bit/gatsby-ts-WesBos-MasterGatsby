@@ -1,6 +1,5 @@
 import formatMoney from './formatMoney'
-
-export type Size = 'S' | 'M' | 'L'
+import { Size } from '../components/OrderContext'
 
 const sizePrice = {
     S: 0.75,

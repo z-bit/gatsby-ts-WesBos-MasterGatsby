@@ -134,38 +134,38 @@ export async function createPages(params) {
 }
 
 // following happen before createPages, since you nees the data to vrate pages
-async function fetchBeersToNodes({ actions, createNodeId, createContentDigest }) {
-    // 1. fetch list of beers
-    const res = await fetch('https://sampleapis.com/beers/api/ale')
-    const beers = await res.json()
+// async function fetchBeersToNodes({ actions, createNodeId, createContentDigest }) {
+//     1. fetch list of beers
+//     const res = await fetch('https://sampleapis.com/beers/api/ale')
+//     const beers = await res.json()
     
-    // 2. loop over each one
-    for (const beer of beers) { 
+//     2. loop over each one
+//     for (const beer of beers) { 
     
-        // 3. creat a node for that beer
-        const nodeContent = JSON.stringify(beer)
-        const nodeMeta = {
-            id: createNodeId(`beer-${beer.name}`),
-            parent: null,
-            children: [],
-            internal: {
-                type: 'Beer',
-                mediaType: 'application/json',
-                contentDigest: createContentDigest(beer),
-            }
-        }
-        actions.createNode({
-            ...beer,
-            ...nodeMeta
-        })
-    }
+//         3. creat a node for that beer
+//         const nodeContent = JSON.stringify(beer)
+//         const nodeMeta = {
+//             id: createNodeId(`beer-${beer.name}`),
+//             parent: null,
+//             children: [],
+//             internal: {
+//                 type: 'Beer',
+//                 mediaType: 'application/json',
+//                 contentDigest: createContentDigest(beer),
+//             }
+//         }
+//         actions.createNode({
+//             ...beer,
+//             ...nodeMeta
+//         })
+//     }
     
-}
+// }
 
-export async function sourceNodes(params) {
-  //fetch a list of beers and source the into the gatsby API
-  await Promise.all([ 
-      fetchBeersToNodes(params)
-  ])    
-}
+// export async function sourceNodes(params) {
+//   fetch a list of beers and source the into the gatsby API
+//   await Promise.all([ 
+//       fetchBeersToNodes(params)
+//   ])    
+// }
 

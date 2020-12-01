@@ -6,14 +6,14 @@ import calculatePizzaPrice  from '../utils/calulatePizzaPrice'
 export default function PizzaOrder({
     order,
     pizzas,
-    removeFromOrder
+    removeFromOrder,
 }) {
     return (
         <>
            {order.map((item, index) => {
                const pizza = pizzas.find(pizza => pizza.id === item.id)
                return (
-                   <MenuItemStyles key={pizza.id}>
+                   <MenuItemStyles key={index}>
                         <Img fluid={pizza.image.asset.fluid} />
                         <h2>{pizza.name}, {item.size}</h2>
                         <p>{calculatePizzaPrice(pizza.price, item.size, true)}</p>  
