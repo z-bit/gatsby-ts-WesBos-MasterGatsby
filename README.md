@@ -10,5 +10,5 @@ Front-end project **Slick's Slices** pizza service
 Back-end project for data management and storage
 
 ## Progress
-finished Module 10: Order Form, Custom Hooks and state management
+finished Module 12: Client Side Data
 
